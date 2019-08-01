@@ -1,0 +1,20 @@
+<% @title = '注文内容' %>
+<h1><%= @title %></h1>
+
+<div class="main">
+  <strong><h2><%= @full_name %> 様の注文内容</h2></strong>
+  <h2>注文数 <%= @a %> kg</h2>
+  <h2>注文金額　 <%= number_with_delimiter(@b) %> 円（税込み）</h2>
+  <h2>振込先: ゆうちょ銀行</h2>
+  <p>ゆうちょ銀行　　　　　<br>記号：１１２００　　　<br>番号：３２０２９１８１</p>
+  <h2>他行からは：ゆうちょ銀行</h2>
+  <p>店名：一二八支店（店番１２８）<br>口座：普通３２０２９１８　　　<br>口座名義：フジヨシアキラ　　　</p>
+  <strong><h2>上記内容と発送予定日を後日メールで送信してください。</h2></strong>
+</div>
+
+<p></p>
+  <div class="main">
+    <div class="links">
+      <%= link_to(image_tag("top.png", size: "60*60", alt: 'TOPページへ', align: "top"), :admin_root) %>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<% @title = 'ダッシュボード　　　　　　　　　　 　　  　　　発売期間：　７月下旬　～　８月１５日' %>
+<h1><%= @title %></h1>
+<p></p>
+<div class="main">
+  <strong>※ 注文確定後、支払い口座、発送予定日をメールにてご連絡いたします。</strong>
+</div>
+<div class="main">
+<%= link_to(image_tag("fujiyoshi1.png", size: "60*60", alt: "注文ページへ", align: "top"), :new_customer_history) %>
+</div>
+<p></p>
+<div class="main">
+<%= link_to(image_tag("fujiyoshi2.png", size: "60*60", alt: "注文履歴", align: "top"), :customer_undispatched_customer_history) %>
+</div>
+<p></p>
+<div class="main">
+<%= link_to(image_tag("money.png", size: "60*60", alt: "入金しました。", align: "top"), :deposit_customer_remittance) %>
+</div>
+<div class="main">
+  <h2><%= link_to '登録住所の変更はこちら', customer_customer_path(@customer.id) %></h2>
+</div>
+
+<div class="main">
+  <h2>お問い合わせ/注文数の変更は下記までお願いします。</h2>
+  <p><h2>メールアドレス　xc543335@jb4.so-net.ne.jp</h2></p>
+  <div class="links">
+    <h2><%= link_to 'ログアウト（戻る）', :customer_session, method: :delete %></h2>
+  </div>
+</div>

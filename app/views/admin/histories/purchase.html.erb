@@ -1,0 +1,53 @@
+<% @title = '検索した注文履歴' %>
+<h1><%= @title %></h1>
+
+<% if @history.present? %>
+  <div class="table-wrapper">
+    <div class="main">
+      <h2>注文日<%= @abc %></h2>
+    </div>
+    <table class="listing">
+      <tr>
+        <th>id</th>
+        <th>氏名</th>
+        <th>ニックネーム</th>
+        <th>住所</th>
+        <th>注文数</th>
+        <th>注文受付日</th>
+      </tr>
+      <% @history.each do |reservation| %>
+        <% fff = reservation.customer_id %>
+        <% address = HomeAddress.find_by(customer_id: reservation.customer_id) %>
+        <% home_address = address.prefecture + address.city + address.address1 + address.address2 %>
+        <% year = reservation.created_at.year %>
+        <% month = reservation.created_at.month %>
+        <% day = reservation.created_at.day %>
+        <% customer = Customer.find_by(id: reservation.customer_id) %>
+        <% @full_name = customer.family_name + customer.given_name %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= @full_name %></td>
+          <td><%= customer.nick_name %></td>
+          <td><%= home_address %></td>
+          <td><%= reservation.reservation %> kg</td>
+          <td><%= year %> 年 <%= month %> 月 <%= day %> 日</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <% check = Check.find(1) %>
+  <% check_year = check.check_year %>
+  <% check_month = check.check_month %>
+  <% check_day = check.check_day %>
+  <div class="main">
+    <h2><%= check_year %> 年 <%= check_month %> 月 <%= check_day %> 日 の注文履歴はありません。</h2>
+  </div>
+<% end %>
+
+<P></P>
+<div class="main">
+  <div class="links">
+    <%= link_to '戻る', :admin_root %>
+  </div>
+</div>

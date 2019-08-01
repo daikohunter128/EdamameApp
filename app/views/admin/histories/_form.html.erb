@@ -1,0 +1,12 @@
+<%= FormPresenter.new(f, self).notes %>
+
+  <fieldset id="history-fields">
+    <legend>発送状況</legend>
+    <%= render 'history_fields', f: f, confirming: false %>
+  </fieldset>
+
+  <fieldset id="change-fields">
+    <legend>注文数変更</legend>
+    <%= render 'change_fields', f: f, confirming: false %>
+  </fieldset>
+  

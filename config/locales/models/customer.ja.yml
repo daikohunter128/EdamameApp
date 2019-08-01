@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      customer:
+        email: メールアドレス
+        password: パスワード
+        family_name: 氏名（姓）
+        given_name: 氏名（名）
+        family_name_kana: フリガナ（姓）
+        given_name_kana: フリガナ（名）
+    errors:
+      models:
+        customer:
+          attributes:
+            email:
+              taken: が他の顧客と重複しています。
+            

@@ -1,0 +1,40 @@
+<% @title = '注文履歴' %>
+<h1><%= @full_name %> 様の <%= @title %><br>(ニックネーム：<%= @nick_name %>)</h1>
+
+<% if @undispatched.present? %>
+  <div class="table-wrapper">
+    <table class="listing">
+      <tr>
+        <th>注文日</th>
+        <th>注文数</th>
+        <th>購入金額</th>
+        <th>発送状況</th>
+      </tr>
+      
+      <% @undispatched.each do |reservation| %>
+        <% year = reservation.created_at.year %>
+        <% month = reservation.created_at.month %>
+        <% day = reservation.created_at.day %>
+        <% a = reservation.reservation.to_i %>
+        <% b = 1000 %>
+        <% c = a * b %>
+        <tr>  
+          <td><%= year %> 年 <%= month %> 月 <%= day %> 日</td>
+          <td><%= reservation.reservation %> kg</td>
+          <td>￥ <%= number_with_delimiter(c) %> （税込み）</td>
+          <td><%= reservation.undispatched %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <div class="main">
+    <h2><%= @full_name %> 様の注文履歴はありません。</h2>
+  </div>
+<% end %>
+<p></p>
+<div class="main">
+  <div class="links">
+    <%= link_to '前ページへ戻る', :customer_root %>
+  </div>
+</div>

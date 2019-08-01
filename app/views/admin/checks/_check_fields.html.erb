@@ -1,0 +1,10 @@
+<%= f.fields_for :check, f.object.check do |ff| %>
+  <%= markup do |m|
+    p = CheckFormPresenter.new(ff, self)
+    p.with_options(required: true) do |q|
+      m << q.drop_down_list_block(:check_year, '年', Check::CHECK_YEAR)
+      m << q.drop_down_list_block(:check_month, '月', Check::CHECK_MONTH)
+      m << q.drop_down_list_block(:check_day, '日', Check::CHECK_DAY)
+    end
+  end %>
+<% end %>

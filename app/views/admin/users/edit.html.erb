@@ -1,0 +1,16 @@
+<% @title = '在庫量の表示' %>
+<h1><%= @title %></h1>
+
+<div class="main">
+  <p>売り切れを選択するとお客様への表示が売り切れ画面に変わります。</p>
+  <p>選択重量が在庫量としてお客様への表示されます。</p>
+</div>
+<div id="generic-form">
+  <%= form_for @administrator, as: 'form', url: :admin_user do |f| %>
+    <%= render 'form', f: f %>
+    <div class="buttons">
+      <%= f.submit '更新' %>
+      <%= link_to 'キャンセル', :admin_root %>
+    </div>
+  <% end %>
+</div>

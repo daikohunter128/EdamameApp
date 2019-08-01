@@ -1,0 +1,49 @@
+<% @title = '未発送一覧ページ' %>
+<h1><%= @title %></h1>
+
+<% if @undispatched.present? %>
+  <div class="table-wrapper">
+    <table class="listing">
+      <tr>
+        <th>id</th>
+        <th>氏名</th>
+        <th>ニックネーム</th>
+        <th>住所</th>
+        <th>注文数</th>
+        <th>注文受付日</th>
+        <th>アクション</th>
+      </tr>
+      
+      <% @undispatched.each do |reservation| %>
+        <% customer = Customer.find_by(id: reservation.customer_id) %>
+        <% home_address = HomeAddress.find_by(customer_id: reservation.customer_id) %>
+        <% year = reservation.year %>
+        <% month = reservation.month %>
+        <% day = reservation.day %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= customer.family_name %><%= customer.given_name %></td>
+          <td><%= customer.nick_name %></td>
+          <td><%= home_address.prefecture %><%= home_address.city %><%= home_address.address1 %><%= home_address.address2 %></td>
+          <td><%= reservation.reservation %> kg</td>
+          <td><%= year %> 年 <%= month %> 月 <%= day %> 日</td>
+          <td class="actions">
+            <%= link_to '注文数変更/発送完了', edit_admin_history_path(reservation) %> |
+            <%= link_to 'キャンセル', [ :admin, reservation ], method: :delete,
+          data: { confirm: '本当にキャンセルしますか？' } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <div class="main">
+    <h2>商品の未発送者はおりません。</h2>
+  </div>
+<% end %>
+<p></p>
+<div class="main">
+  <div class="links">
+    <%= link_to '戻る', :admin_root %>
+  </div>
+</div>

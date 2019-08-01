@@ -1,0 +1,35 @@
+<% @title = '今年度の入金一覧' %>
+<h1><%= @title %></h1>
+
+<% if @customers.present? %>
+  <div class="table-wrapper"> 
+    <table class="listing">
+      <tr>
+        <th>会員id</th>
+        <th>住所</th>
+        <th>氏名</th>
+        <th>ニックネーム</th>
+        <th>入金完了日</th>
+      </tr>
+      <% @customers.each do |m| %>
+        <tr>
+          <td><%= m.customer_id %></td>
+          <td><%= m.prefecture %></td>
+          <td><%= m.full_name %></td>
+          <td><%= m.nick_name %></td>
+          <td><%= m.deposit_time %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <div class="main">
+    <h2>入金者はおりません。</h2>
+  </div>
+<% end %>
+<p></p>  
+<div class='main'>
+  <div class="links">
+    <%= link_to '戻る', :admin_root %>
+  </div>
+</div>

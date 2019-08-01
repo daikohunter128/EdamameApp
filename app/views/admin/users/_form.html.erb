@@ -1,0 +1,13 @@
+<%= FormPresenter.new(f, self).notes %>
+
+<fieldset id="customer-fields">
+  <legend>在庫表示</legend>
+  <%= f.fields_for :user, f.object.account do |ff| %>
+    <%= markup do |m|
+      p = AdministratorFormPresenter.new(ff, self)
+      p.with_options(required: true) do |q|
+        m << q.drop_down_list_block(:stock, '在庫表示', Administrator::STOCK)
+      end
+    end %>
+  <% end %>
+</fieldset>

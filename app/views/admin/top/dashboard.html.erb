@@ -1,0 +1,19 @@
+<% @title = 'ダッシュボード' %>
+<h1><%= @title %></h1>
+
+<ul class="menu">
+  <li><%= link_to '顧客管理', :admin_customers %></li>
+  <li><%= link_to '本日の注文', :admin_reservation_admin_history %></li>
+  <li><%= link_to '注文履歴検索', :edit_admin_check %></li>
+  <li><%= link_to '未発送者一覧ページ（注文数変更・発送状況・注文キャンセル）', :admin_undispatched_admin_history %>
+  </li>
+  <% if @stock.stock == "今期終了" %>
+    <li><%= link_to '売り切れ連絡・在庫情報', :edit_admin_account %>　<strong>（現在の在庫量　<%= @stock.stock %>）</strong></li>
+  <% elsif @stock.stock == "売り切れ" %>
+    <li><%= link_to '売り切れ連絡・在庫情報', :edit_admin_account %>　<strong>（現在の在庫量　<%= @stock.stock %>）</strong></li>
+  <% else %>
+    <li><%= link_to '売り切れ連絡・在庫情報', :edit_admin_account %>　<strong>（現在の在庫量　<%= @stock.stock %>kg）</strong></li>
+  <% end %>
+  <li><%= link_to '今年度の注文一覧', :admin_chart_admin_history %></li>
+  <li><%= link_to '今年度入金情報', :admin_remittances %></li>
+</ul>

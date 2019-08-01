@@ -1,0 +1,44 @@
+<% @title = '顧客詳細情報' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="attributes">
+    <tr><th colspan="2">基本情報</th></tr>
+    <% p1 = CustomerPresenter.new(@customer, self) %>
+    <tr><th>氏名</th><td><%= p1.full_name %></td></tr>
+    <tr><th>フリガナ</th><td><%= p1.full_name_kana %></td></tr>
+    <tr><th>新規登録日時</th><td class="date"><%= p1.created_at %></td></tr>
+    <tr><th>アカウント更新日時</th><td class="date"><%= p1.updated_at %></td></tr>
+    
+    
+    <% if @customer.address %>
+      <% p2 = AddressPresenter.new(@customer.address, self) %>
+      <tr><th colspan="2">自宅住所</th></tr>
+      <tr><th>郵便番号</th><td><%= p2.postal_code %></td></tr>
+      <tr><th>都道府県</th><td><%= p2.prefecture %></td></tr>
+      <tr><th>市区町村</th><td><%= p2.city %></td></tr>
+      <tr><th>町域、番地等</th><td><%= p2.address1 %></td></tr>
+      <tr><th>建物名、　部屋番号等</th><td><%= p2.address2 %></td></tr>
+    <% end %>
+    
+    <tr><th colspan="2">購入履歴</th></tr>
+    <% if @history.present? %>
+      <% @history.each do |pp| %>
+        <% year = pp.created_at.year %>
+        <% month = pp.created_at.month %>
+        <% day = pp.created_at.day %>
+      
+        <tr><th>注文日・注文数</th><td><%= year %> 月 <%= month %> 月 <%= day %> 日　　<%= pp.reservation %> kg</td>
+      <% end %>
+    <% else %>
+      <tr><th>注文日・注文数</th><td>購入履歴はありません。</td>
+    <% end %>
+  </table>
+</div>
+<p></p>
+  
+<div class="main">
+  <div class="links">
+    <%= link_to '戻る', :admin_root %>
+  </div>
+</div>

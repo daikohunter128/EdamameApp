@@ -1,0 +1,37 @@
+<% @title = '注文数量の入力' %>
+<h1><%= @title %></h1>
+
+<div class="main">
+  <% if @stock.stock == "今期終了" %>
+    <%= image_tag("end.png", size: "60*60", alt: "今期の販売は終了いたしました。", align: "top") %>
+    <p></p>
+    <div class="links">
+      <%= link_to '戻る', :customer_root %>
+    </div>
+  <% elsif @stock.stock == "売り切れ" %>
+    <%= image_tag("sold_out.png", size: "60*60", alt: "枝豆の在庫が無くなりました。", align: "top") %>
+    <p></p>
+    <div class="links">
+      <%= link_to '戻る', :customer_root %>
+    </div>
+  <% else %>
+    <ul>
+    <p>価格は1ｋｇ当たり￥1,000（税別）となります。（送料はお客様にて負担となります。）<br>注文の確定後、登録されたメールアドレスへ振込先、購入額を送信いたします。<br><strong>お客様より指定口座への入金確認後、商品を発送させていただきます。</strong></p>
+    </ul>
+
+    <div id="generic-form">
+      <%= form_for @history_form, as: 'form', url: :customer_histories do |f| %>
+        <%= render 'form', f: f %>
+        <div class="buttons">
+          <%= f.submit '注文する' %>
+          <%= link_to 'キャンセル', :customer_root %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="main">
+      <h2>お問い合わせ/注文数量の変更は下記までお願いします。</h2>
+      <p>藤由農園<br>e-mail:xc543335@jb4.so-net.ne.jp</p>
+    </div>
+  <% end %>
+</div>

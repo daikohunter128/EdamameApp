@@ -1,0 +1,2 @@
+class Remittance < ApplicationRecord
+end

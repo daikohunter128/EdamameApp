@@ -1,0 +1,8 @@
+<%= f.fields_for :history, f.object.history do |ff| %>
+  <%= markup do |m|
+    p = HistoryFormPresenter.new(ff, self)
+    p.with_options(required: true) do |q|
+      m << q.drop_down_list_block(:undispatched, '発送状況', History::UNDISPATCHED)
+    end
+  end %>
+<% end %>

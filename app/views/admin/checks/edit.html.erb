@@ -1,0 +1,12 @@
+<% @title = '注文履歴検索' %>
+<h1><%= @title %></h1>
+
+<div id="generic-form">
+  <%= form_for @check_form, as: 'form', url:[ :admin, @check_form.check ] do |f| %>
+    <%= render 'form', f: f %>
+    <div class="buttons">
+      <%= f.submit'検索' %>
+      <%= link_to 'キャンセル', :admin_root %>
+    </div>
+  <% end %>
+</div>

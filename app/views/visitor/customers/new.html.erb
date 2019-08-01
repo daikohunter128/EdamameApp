@@ -1,0 +1,41 @@
+<% @title = '顧客の新規購入登録' %>
+<h1><%= @title %></h1>
+
+<div class="main">
+  <% if @stack == "今期終了" %>
+    <%= image_tag("end.png", size: "60*60", alt: "今期の販売は終了いたしました。", align: "top") %>
+    <p></p>
+    <div class="links">
+      <%= link_to '戻る', :visitor_root %>
+    </div>
+  <% elsif @stock == "売り切れ" %>
+    <%= image_tag("sold_out.png", size: "60*60", alt: "枝豆の在庫が無くなりました。", align: "top") %>
+    <p></p>
+    <div class="links">
+      <%= link_to '戻る', :visitor_root %>
+    </div>
+  <% else %>
+   <h2><strong>販売可能</strong></h2>
+    <p>お客様の送付先を登録し、注文画面へお進みください。<br>
+    <p>注文の確定後、登録されたメールアドレスへ振込先、<br>購入額を送信いたします。　　　　　　　　　　　　</p>
+   
+    <div id="generic-form">
+      <%= form_for @customer_form, as: 'form', url: :visitor_customer do |f| %>
+        <%= render 'form', f: f %>
+        <div class="buttons">
+          <%= f.submit '登録' %>
+          <%= link_to 'キャンセル', :customer_root %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="main">
+      <div class="links">
+        <%= link_to '個人情報の取り扱いについて', :information_visitor_guide %>
+      </div>
+      <div class="links">
+        <%= link_to '購入金支払い口座', :bank_visitor_guide %>
+      </div>
+    </div>
+  <% end %>
+</div>

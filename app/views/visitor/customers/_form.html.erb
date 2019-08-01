@@ -1,0 +1,14 @@
+<%= FormPresenter.new(f, self).notes %>
+
+<fieldset id="customer-fields">
+  <legend>基本情報登録（<strong>パスワードは記録、保管願います。</strong>）</legend>
+  <%= render 'customer_fields', f: f %>
+</fieldset>
+<div>
+  <%= f.check_box :inputs_address %>
+  <%= f.label :inputs_address, '← ☑ のまま自宅住所を入力してください。' %>
+</div>
+<fieldset id="address-fields">
+  <legend>自宅住所登録</legend>
+  <%= render 'address_fields', f: f %>
+</fieldset>

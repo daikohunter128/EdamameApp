@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      history:
+        reservasion: 注文数
+        undispatched: 発送区分

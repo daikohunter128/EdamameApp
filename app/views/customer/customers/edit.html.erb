@@ -1,0 +1,15 @@
+<% @title = 'アカウントの編集' %>
+<h1><%= @title %></h1>
+
+<div class="main">
+  <p>パスワードの変更はできません。変更の場合はメールにて連絡お願いします。</p>
+</div>
+<div id="generic-form">
+  <%= form_for @customer_form, as: 'form', url: [ :customer, @customer_form.customer ]  do |f| %>
+    <%= render 'form', f: f %>
+    <div class="buttons">
+      <%= f.submit '更新' %>
+      <%= link_to 'キャンセル', :customer_root %>
+    </div>
+  <% end %>
+</div>

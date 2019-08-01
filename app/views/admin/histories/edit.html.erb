@@ -1,0 +1,16 @@
+<% @title = '発送チェック/注文数変更' %>
+<h1><%= @title %></h1>
+
+<div class="main">
+  <h2><p><%= @customer.family_name + ' ' + @customer.given_name %> 様 <%= @year %> 年 <%= @month %> 月 <%= @day %> 日　注文分</p><br>登録済み注文数量 <%= @reservation %> kg</h2>
+</div>
+
+<div id="generic-form">
+  <%= form_for @history_form, as: 'form', url:[ :admin, @history_form.history ] do |f| %>
+    <%= render 'form', f: f %>
+    <div class="buttons">
+      <%= f.submit'更新' %>
+      <%= link_to 'キャンセル', :admin_root %>
+    </div>
+  <% end %>
+</div>
