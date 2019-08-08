@@ -3,7 +3,7 @@ lock "~> 3.11.0"
 
 set :application, "my_app_name"
 set :repo_url, "git@example.com:me/my_repo.git"
-set :repo_url, "https://github.com/chibikinoko128/ChibiApp.git"
+set :repo_url, "https://github.com/daikohunter128/EdamameApp.git"
 set :branch, 'master'
 set :conditionally_migrate, true
 
@@ -47,7 +47,7 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :deploy_to,       "/usr/share/nginx/html"
+set :deploy_to,       "/usr/share/nginx/html/edamame"
 set :format, :pretty
 set :log_level, :debug
 set :keep_releases, 5

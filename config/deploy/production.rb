@@ -70,14 +70,14 @@ set :migration_role, 'db'
 
 role :app, %w{daiko@153.127.8.129}
 role :web, %w{daiko@153.127.8.129}
-role :db,  %w{kdaiko@153.127.8.129}
-server '153.127.8.129', user: 'kinoko', roles: %w{app web db}
+role :db,  %w{daiko@153.127.8.129}
+server '153.127.8.129', user: 'daiko', roles: %w{app web db}
 
 set :ssh_options, {
   port: 64273,
   #keys: [File.expand_path('~/.ssh/id_rsa')],
   #keys: %w(/home/vagrant/.ssh/id_rsa),
-  keys: %w(/home/vagrant/centos6/hunter/.ssh/id_rsa_b),
+  keys: %w(/home/vagrant/fujiyoshi/edamame/.ssh/id_rsa_b),
   forward_agent: true,
   auth_methods: %w(publickey)
 }

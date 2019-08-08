@@ -16,10 +16,9 @@
 !/tmp/.keep
 
 db/seeds/development/administrators.rb
-db/seeds/development/clients.rb
-db/seeds/development/entries.rb
+
 #db/seeds/production/administrators.rb
-#db/seeds/production/requests.rb
+
 /.env
 /.ssh
 /server.crt

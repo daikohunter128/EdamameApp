@@ -1,6 +1,10 @@
 <% @title = '今年度の入金一覧' %>
 <h1><%= @title %></h1>
 
+<div class='main'>
+  <p>お客様が入金の連絡ボタンを押した記録です。</p>
+</div>
+
 <% if @customers.present? %>
   <div class="table-wrapper"> 
     <table class="listing">
@@ -24,7 +28,7 @@
   </div>
 <% else %>
   <div class="main">
-    <h2>入金者はおりません。</h2>
+    <h2>入金連絡ボタンを押したお客様はおりません。</h2>
   </div>
 <% end %>
 <p></p>  

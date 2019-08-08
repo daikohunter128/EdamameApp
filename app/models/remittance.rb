@@ -1,2 +1,2 @@
-class Remittance < ApplicationRecord
+class Remittance < ActiveRecord::Base
 end

@@ -3,7 +3,7 @@
 #何秒経過すればワーカーを削除するのかを決める
   $timeout = 30
 #自分のアプリケーション名、currentがつくことに注意。
-  $app_dir = "/usr/share/nginx/html/current"
+  $app_dir = "/usr/share/nginx/html/edamame/current"
 #リクエストを受け取るポート番号を指定。後述
   $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
   $pid  = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
@@ -29,7 +29,7 @@
 #ホットデプロイをするかしないかを設定
   preload_app true
 
-root = "/usr/share/nginx/html/current"
+root = "/usr/share/nginx/html/edamame/current"
 
 before_exec do |server|
   ENV['BUNDLE_GEMFILE'] = "#{root}/Gemfile"
