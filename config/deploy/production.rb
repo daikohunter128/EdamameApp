@@ -77,7 +77,7 @@ set :ssh_options, {
   port: 64273,
   #keys: [File.expand_path('~/.ssh/id_rsa')],
   #keys: %w(/home/vagrant/.ssh/id_rsa),
-  keys: %w(/home/vagrant/fujiyoshi/edamame/.ssh/id_rsa_b),
+  keys: %w(/home/vagrant/fujiyoshi/edamame/.ssh/id_rsa_c),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
