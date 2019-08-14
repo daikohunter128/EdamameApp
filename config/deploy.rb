@@ -56,7 +56,7 @@ set :rbenv_type, :user
 
 set :rbenv_ruby_version, 'ruby_2.3.1'
 #set :rbenv_ruby, 'ruby_2.3.1'
-set :rbenv_custom_path, '/home/daiko/.rbenv'
+set :rbenv_custom_path, '/usr/local/src/rbenv'
 #set :rbenv_custom_path, '/root/.rbenv'
 set :linked_dirs, fetch(:linked_dirs, []).push(
   'log',
