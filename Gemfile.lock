@@ -300,7 +300,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   kaminari
-  listen (>= 3.0.5, < 3.2)
+  listen (~> 3.1.5)
   mysql2
   nokogiri
   puma (~> 3.7)
